@@ -1,4 +1,41 @@
 /* ===========================
+   PALETTE SWITCHER
+   =========================== */
+(function initPalette() {
+  const paletteLink = document.getElementById('palette');
+  const btn         = document.getElementById('psBtn');
+  const panel       = document.getElementById('psPanel');
+  if (!btn || !panel || !paletteLink) return;
+
+  const saved = localStorage.getItem('palette') || 'sky';
+  apply(saved);
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    panel.classList.toggle('open');
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#ps')) panel.classList.remove('open');
+  });
+
+  document.querySelectorAll('.ps-swatch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      apply(sw.dataset.p);
+      localStorage.setItem('palette', sw.dataset.p);
+      panel.classList.remove('open');
+    });
+  });
+
+  function apply(name) {
+    paletteLink.href = `css/palettes/${name}.css`;
+    document.querySelectorAll('.ps-swatch').forEach(sw =>
+      sw.classList.toggle('active', sw.dataset.p === name)
+    );
+  }
+})();
+
+/* ===========================
    NAVBAR SCROLL
    =========================== */
 const navbar = document.getElementById('navbar');

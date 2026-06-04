@@ -982,6 +982,112 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================
+   PALETTE SWITCHER
+   =========================== */
+.ps {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Trigger button */
+.ps-btn {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: var(--shadow-md), 0 0 0 3px rgba(var(--accent-rgb),.2);
+  transition: transform .22s ease, box-shadow .22s ease;
+  flex-shrink: 0;
+}
+
+.ps-btn svg { width: 22px; height: 22px; }
+
+.ps-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: var(--shadow-lg), 0 0 0 5px rgba(var(--accent-rgb),.18);
+}
+
+/* Swatch panel */
+.ps-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.9);
+  transition: opacity .22s ease, transform .22s ease;
+}
+
+.ps-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Individual swatches */
+.ps-swatch {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 3px solid rgba(255,255,255,.9);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+  outline: none;
+}
+
+.ps-swatch:hover {
+  transform: scale(1.18);
+  box-shadow: 0 4px 16px rgba(0,0,0,.28);
+}
+
+.ps-swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--c), 0 4px 16px rgba(0,0,0,.2);
+}
+
+.ps-swatch.active::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.9);
+}
+
+/* Tooltip (title attr via CSS) */
+.ps-swatch::before {
+  content: attr(title);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%; transform: translateY(-50%);
+  background: var(--text-primary);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s;
+}
+
+.ps-swatch:hover::before { opacity: 1; }
+
+/* ===========================
    JS EFFECTS
    =========================== */
 

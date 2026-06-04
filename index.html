@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>박수아 | Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
 
   <!-- Open Graph — 링크 공유 시 미리보기 -->
   <meta property="og:type"        content="website" />
@@ -430,6 +431,26 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== PALETTE SWITCHER ===== -->
+  <div class="ps" id="ps" aria-label="테마 변경">
+    <div class="ps-panel" id="psPanel" role="listbox" aria-label="컬러 팔레트">
+      <button class="ps-swatch" data-p="sky"    style="--c:#0ea5e9" title="Sky · 하늘"></button>
+      <button class="ps-swatch" data-p="navy"   style="--c:#3b82f6" title="Navy · 네이비"></button>
+      <button class="ps-swatch" data-p="forest" style="--c:#16a34a" title="Forest · 그린"></button>
+      <button class="ps-swatch" data-p="royal"  style="--c:#7c3aed" title="Royal · 퍼플"></button>
+      <button class="ps-swatch" data-p="teal"   style="--c:#0d9488" title="Teal · 틸"></button>
+    </div>
+    <button class="ps-btn" id="psBtn" aria-label="팔레트 열기/닫기">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.36-.59-.36-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z" fill="currentColor" opacity=".9"/>
+        <circle cx="6.5"  cy="11.5" r="1.5" fill="white"/>
+        <circle cx="9"    cy="7.5"  r="1.5" fill="white"/>
+        <circle cx="13"   cy="6"    r="1.5" fill="white"/>
+        <circle cx="16.5" cy="8"    r="1.5" fill="white"/>
+      </svg>
+    </button>
+  </div>
 
   <footer class="footer">
     <p>© 2026 박수아</p>
