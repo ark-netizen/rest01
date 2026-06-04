@@ -133,7 +133,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--nav-h) + 48px) 28px 56px;
+  padding: calc(var(--nav-h) + 48px) 0 56px;
   background: #f3f0ff;
   position: relative;
   overflow: hidden;
