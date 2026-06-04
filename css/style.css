@@ -927,6 +927,41 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================
+   JS EFFECTS
+   =========================== */
+
+/* Particle canvas */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Typewriter cursor */
+.type-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: blink 0.75s step-end infinite;
+}
+
+.type-cursor.type-done {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ===========================
    FADE-IN
    =========================== */
 .fade-in {
