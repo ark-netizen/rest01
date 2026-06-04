@@ -69,9 +69,8 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 28px;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   position: relative;
 }
 
@@ -174,18 +173,18 @@ img { max-width: 100%; display: block; }
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 72px;
-  max-width: 920px;
+  gap: 80px;
+  max-width: 960px;
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-/* Hero photo — triple-ring treatment */
+/* Hero photo — ring + zoom + floating chips */
 .hero-photo {
   flex-shrink: 0;
   position: relative;
-  width: 240px; height: 240px;
+  width: 280px; height: 280px;
 }
 
 .hero-photo::before {
@@ -217,17 +216,59 @@ img { max-width: 100%; display: block; }
   to { transform: rotate(360deg); }
 }
 
-.hero-photo img {
+/* Inner wrapper — clips zoomed image to circle */
+.hero-photo-inner {
   position: relative;
   z-index: 2;
-  width: 240px;
-  height: 240px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
+  overflow: hidden;
   border: 4px solid #fff;
   box-shadow: var(--shadow-lg);
+}
+
+.hero-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  transform: scale(1.15);
+  transform-origin: center 20%;
+  display: block;
+}
+
+/* Floating chips */
+.hero-chip {
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  animation: floatChip 4s ease-in-out infinite;
+}
+
+.hero-chip--top {
+  top: 12px;
+  right: -36px;
+  animation-delay: 0s;
+}
+
+.hero-chip--bottom {
+  bottom: 20px;
+  left: -36px;
+  animation-delay: 2s;
+}
+
+@keyframes floatChip {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
 }
 
 /* Hero text */
@@ -936,6 +977,9 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 480px) {
   .section { padding: 72px 0; }
-  .hero-photo, .hero-photo img { width: 190px; height: 190px; }
+  .hero-photo { width: 210px; height: 210px; }
+  .hero-photo-inner { width: 210px; height: 210px; }
+  .hero-chip--top  { right: -24px; }
+  .hero-chip--bottom { left: -24px; }
   .skills-grid { grid-template-columns: 1fr; }
 }
