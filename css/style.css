@@ -131,9 +131,10 @@ img { max-width: 100%; display: block; }
    =========================== */
 .hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--nav-h) + 48px) 0 56px;
+  padding: calc(var(--nav-h) + 48px) 0 40px;
   background: #f3f0ff;
   position: relative;
   overflow: hidden;
@@ -435,13 +436,15 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-scroll-hint {
-  position: absolute;
-  bottom: 32px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column;
-  align-items: center; gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
   color: var(--text-light);
-  font-size: 0.7rem; letter-spacing: 1.5px;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  position: relative;
   z-index: 1;
 }
 
