@@ -385,6 +385,80 @@ img { max-width: 100%; display: block; }
 .tag-sm { padding: 4px 10px; font-size: 0.78rem; }
 
 /* ===========================
+   HERO BADGES
+   =========================== */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.badge {
+  background: rgba(108,99,255,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(108,99,255,0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   SECTION SUBTITLE
+   =========================== */
+.section-sub {
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin-top: -36px;
+  margin-bottom: 40px;
+}
+
+/* ===========================
+   CERT STRIP
+   =========================== */
+.cert-strip {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.cert-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.cert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cert-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.cert-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cert-org {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+/* ===========================
    TIMELINE (Experience / Education)
    =========================== */
 .timeline {
@@ -463,6 +537,22 @@ img { max-width: 100%; display: block; }
 .timeline-content p { color: var(--text-secondary); font-size: 0.92rem; }
 
 /* ===========================
+   TIMELINE HIGHLIGHT (KBS)
+   =========================== */
+.timeline-dot--star {
+  background: #fff;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.25);
+  width: 18px; height: 18px;
+  left: -30px;
+}
+
+.timeline-content--highlight {
+  border-color: rgba(108,99,255,0.35);
+  border-left: 3px solid var(--accent);
+}
+
+/* ===========================
    PROJECTS
    =========================== */
 .projects-grid {
@@ -478,6 +568,8 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--card-shadow);
   background: var(--bg);
   transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -485,60 +577,53 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 12px 40px rgba(108,99,255,0.16);
 }
 
-.project-img {
-  position: relative;
-  height: 180px;
-  background: linear-gradient(135deg, #ede9ff, #ddd8ff);
-  overflow: hidden;
-}
-
-.project-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(108,99,255,0.85);
+.project-header {
+  padding: 20px 24px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity var(--transition);
 }
 
-.project-card:hover .project-overlay { opacity: 1; }
+.project-header--purple { background: linear-gradient(135deg, #6c63ff, #9c8fff); }
+.project-header--indigo { background: linear-gradient(135deg, #4f46e5, #7c73f0); }
+.project-header--teal   { background: linear-gradient(135deg, #0d9488, #2dd4bf); }
 
-.project-link {
+.project-roi {
   color: #fff;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border: 2px solid #fff;
-  padding: 8px 20px;
-  border-radius: 6px;
-  transition: background var(--transition);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-.project-link:hover {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
+.project-period {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.78rem;
 }
 
-.project-body { padding: 24px; }
+.project-body { padding: 24px; flex: 1; }
 
 .project-body h3 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-.project-body p {
+.project-body > p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+  line-height: 1.65;
 }
+
+.project-detail {
+  list-style: disc;
+  padding-left: 16px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  margin-bottom: 16px;
+}
+
+.project-detail li { margin-bottom: 4px; line-height: 1.5; }
 
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
