@@ -1,37 +1,52 @@
 /* ===========================
-   PALETTE SWITCHER
+   THEME BAR — palette + dark/light mode
    =========================== */
-(function initPalette() {
+(function initThemeBar() {
   const paletteLink = document.getElementById('palette');
-  const btn         = document.getElementById('psBtn');
-  const panel       = document.getElementById('psPanel');
-  if (!btn || !panel || !paletteLink) return;
+  const modeBtn     = document.getElementById('tbMode');
+  if (!paletteLink || !modeBtn) return;
 
-  const saved = localStorage.getItem('palette') || 'sky';
-  apply(saved);
+  const SUN  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+  const MOON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  const AUTO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`;
 
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    panel.classList.toggle('open');
-  });
+  const MODES = ['auto', 'light', 'dark'];
+  const MODE_LABEL = { auto:'시스템', light:'라이트', dark:'다크' };
 
-  document.addEventListener('click', e => {
-    if (!e.target.closest('#ps')) panel.classList.remove('open');
-  });
+  const savedPalette = localStorage.getItem('palette') || 'sky';
+  const savedMode    = localStorage.getItem('theme-mode') || 'auto';
 
-  document.querySelectorAll('.ps-swatch').forEach(sw => {
-    sw.addEventListener('click', () => {
-      apply(sw.dataset.p);
-      localStorage.setItem('palette', sw.dataset.p);
-      panel.classList.remove('open');
+  applyPalette(savedPalette);
+  applyMode(savedMode);
+
+  document.querySelectorAll('.tb-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      applyPalette(dot.dataset.p);
+      localStorage.setItem('palette', dot.dataset.p);
     });
   });
 
-  function apply(name) {
+  modeBtn.addEventListener('click', () => {
+    const cur  = localStorage.getItem('theme-mode') || 'auto';
+    const next = MODES[(MODES.indexOf(cur) + 1) % MODES.length];
+    applyMode(next);
+    localStorage.setItem('theme-mode', next);
+  });
+
+  function applyPalette(name) {
     paletteLink.href = `css/palettes/${name}.css`;
-    document.querySelectorAll('.ps-swatch').forEach(sw =>
-      sw.classList.toggle('active', sw.dataset.p === name)
+    document.querySelectorAll('.tb-dot').forEach(d =>
+      d.classList.toggle('active', d.dataset.p === name)
     );
+  }
+
+  function applyMode(mode) {
+    const root = document.documentElement;
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    const icons = { auto: AUTO, light: SUN, dark: MOON };
+    modeBtn.innerHTML  = icons[mode];
+    modeBtn.title      = MODE_LABEL[mode] + ' 모드';
   }
 })();
 

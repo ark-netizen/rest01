@@ -121,9 +121,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 84vh;
-  padding-top: var(--nav-h);
-  padding-bottom: 0;
+  padding: calc(var(--nav-h) + 28px) 0 20px;
   background: var(--bg-hero);
   position: relative;
   overflow: hidden;
@@ -221,13 +219,12 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-content {
-  flex: 1;
   display: flex;
   align-items: center;
   gap: 88px;
   max-width: 1060px;
   width: 100%;
-  padding: 48px 28px;
+  padding: 20px 28px;
   position: relative;
   z-index: 1;
   margin: 0 auto;
@@ -430,7 +427,7 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 8px 0 28px;
+  padding: 4px 0 16px;
   color: var(--text-light);
   font-size: 0.7rem;
   letter-spacing: 1.5px;
@@ -982,110 +979,96 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================
-   PALETTE SWITCHER
+   THEME BAR (top-right fixed)
    =========================== */
-.ps {
+.theme-bar {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 1100;
+  top: 0; right: 0;
+  height: var(--nav-h);
+  padding: 0 20px;
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Trigger button */
-.ps-btn {
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  box-shadow: var(--shadow-md), 0 0 0 3px rgba(var(--accent-rgb),.2);
-  transition: transform .22s ease, box-shadow .22s ease;
-  flex-shrink: 0;
-}
-
-.ps-btn svg { width: 22px; height: 22px; }
-
-.ps-btn:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: var(--shadow-lg), 0 0 0 5px rgba(var(--accent-rgb),.18);
-}
-
-/* Swatch panel */
-.ps-panel {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 8px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px) scale(0.9);
-  transition: opacity .22s ease, transform .22s ease;
+  z-index: 1100;
 }
 
-.ps-panel.open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
+.tb-palettes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Individual swatches */
-.ps-swatch {
-  width: 34px; height: 34px;
+.tb-dot {
+  width: 20px; height: 20px;
   border-radius: 50%;
   background: var(--c);
-  border: 3px solid rgba(255,255,255,.9);
+  border: 2.5px solid rgba(255,255,255,.8);
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,.2);
-  transition: transform .18s ease, box-shadow .18s ease;
-  position: relative;
+  box-shadow: 0 1px 5px rgba(0,0,0,.18);
+  transition: transform .18s, box-shadow .18s;
   outline: none;
+  position: relative;
 }
 
-.ps-swatch:hover {
-  transform: scale(1.18);
-  box-shadow: 0 4px 16px rgba(0,0,0,.28);
-}
+.tb-dot:hover { transform: scale(1.25); }
 
-.ps-swatch.active {
+.tb-dot.active {
+  box-shadow: 0 0 0 2.5px var(--c), 0 2px 8px rgba(0,0,0,.2);
   border-color: #fff;
-  box-shadow: 0 0 0 2px var(--c), 0 4px 16px rgba(0,0,0,.2);
 }
 
-.ps-swatch.active::after {
+.tb-dot.active::after {
   content: '';
   position: absolute;
-  inset: 5px;
+  inset: 3px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.9);
+  border: 1.5px solid rgba(255,255,255,.8);
 }
 
-/* Tooltip (title attr via CSS) */
-.ps-swatch::before {
+.tb-dot::before {
   content: attr(title);
   position: absolute;
-  right: calc(100% + 10px);
-  top: 50%; transform: translateY(-50%);
+  bottom: calc(100% + 8px);
+  left: 50%; transform: translateX(-50%);
   background: var(--text-primary);
   color: var(--bg);
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 4px 9px;
-  border-radius: 6px;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 5px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: opacity .15s;
 }
 
-.ps-swatch:hover::before { opacity: 1; }
+.tb-dot:hover::before { opacity: 1; }
+
+.tb-sep {
+  width: 1px; height: 18px;
+  background: var(--border);
+  opacity: .7;
+}
+
+.tb-mode {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all .18s;
+}
+
+.tb-mode:hover {
+  background: var(--bg-alt);
+  color: var(--accent);
+  border-color: rgba(var(--accent-rgb),.4);
+}
+
+.tb-mode svg { width: 16px; height: 16px; }
 
 /* ===========================
    JS EFFECTS

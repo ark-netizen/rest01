@@ -432,29 +432,26 @@
     </div>
   </section>
 
-  <!-- ===== PALETTE SWITCHER ===== -->
-  <div class="ps" id="ps" aria-label="테마 변경">
-    <div class="ps-panel" id="psPanel" role="listbox" aria-label="컬러 팔레트">
-      <button class="ps-swatch" data-p="sky"    style="--c:#0ea5e9" title="Sky · 하늘"></button>
-      <button class="ps-swatch" data-p="navy"   style="--c:#3b82f6" title="Navy · 네이비"></button>
-      <button class="ps-swatch" data-p="forest" style="--c:#16a34a" title="Forest · 그린"></button>
-      <button class="ps-swatch" data-p="royal"  style="--c:#7c3aed" title="Royal · 퍼플"></button>
-      <button class="ps-swatch" data-p="teal"   style="--c:#0d9488" title="Teal · 틸"></button>
-    </div>
-    <button class="ps-btn" id="psBtn" aria-label="팔레트 열기/닫기">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.36-.59-.36-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z" fill="currentColor" opacity=".9"/>
-        <circle cx="6.5"  cy="11.5" r="1.5" fill="white"/>
-        <circle cx="9"    cy="7.5"  r="1.5" fill="white"/>
-        <circle cx="13"   cy="6"    r="1.5" fill="white"/>
-        <circle cx="16.5" cy="8"    r="1.5" fill="white"/>
-      </svg>
-    </button>
-  </div>
-
   <footer class="footer">
     <p>© 2026 박수아</p>
   </footer>
+
+  <!-- ===== THEME BAR (top-right) ===== -->
+  <div class="theme-bar" id="themeBar">
+    <div class="tb-palettes">
+      <button class="tb-dot" data-p="sky"    style="--c:#0ea5e9" title="Sky · 하늘"></button>
+      <button class="tb-dot" data-p="navy"   style="--c:#3b82f6" title="Navy · 네이비"></button>
+      <button class="tb-dot" data-p="forest" style="--c:#16a34a" title="Forest · 그린"></button>
+      <button class="tb-dot" data-p="royal"  style="--c:#7c3aed" title="Royal · 퍼플"></button>
+      <button class="tb-dot" data-p="teal"   style="--c:#0d9488" title="Teal · 틸"></button>
+    </div>
+    <span class="tb-sep"></span>
+    <button class="tb-mode" id="tbMode" aria-label="모드 전환" title="다크/라이트 모드">
+      <svg id="tbIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
