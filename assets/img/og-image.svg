@@ -1,0 +1,46 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f3f0ff"/>
+      <stop offset="50%"  stop-color="#e8e2ff"/>
+      <stop offset="100%" stop-color="#ede8ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#4a41cc"/>
+      <stop offset="100%" stop-color="#9d97ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1100" cy="80"  r="200" fill="rgba(108,99,255,0.07)"/>
+  <circle cx="80"   cy="560" r="160" fill="rgba(157,151,255,0.06)"/>
+  <circle cx="600"  cy="600" r="300" fill="rgba(108,99,255,0.04)"/>
+
+  <!-- Accent bar -->
+  <rect x="100" y="290" width="56" height="6" rx="3" fill="url(#accent)"/>
+
+  <!-- Name -->
+  <text x="100" y="240"
+        font-family="'Noto Sans KR', sans-serif"
+        font-size="88" font-weight="700"
+        fill="#12122a" letter-spacing="-2">박수아</text>
+
+  <!-- Tagline -->
+  <text x="100" y="340"
+        font-family="'Noto Sans KR', sans-serif"
+        font-size="30" font-weight="400"
+        fill="#6c63ff">엔터테인먼트 × 데이터 마케팅 기획자</text>
+
+  <!-- Sub info -->
+  <text x="100" y="420"
+        font-family="'Noto Sans KR', sans-serif"
+        font-size="24" fill="#9898b8">OPIc AL · 빅데이터분석기사 · GPA 4.29</text>
+
+  <!-- URL -->
+  <text x="100" y="560"
+        font-family="'Inter', sans-serif"
+        font-size="20" fill="#c0bedd">ark-netizen.github.io/rest01</text>
+</svg>
