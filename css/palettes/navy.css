@@ -1,0 +1,85 @@
+/* ================================================================
+   PALETTE 2 — NAVY
+   Primary : 로열 블루  ·  Pair Dark : 다크 네이비
+   ================================================================ */
+:root {
+  --accent:        #3b82f6;
+  --accent-dark:   #1e3a8a;
+  --accent-light:  #93c5fd;
+  --accent-rgb:    59,130,246;
+  --accent-glow:   rgba(59,130,246,.22);
+  --secondary:     rgba(59,130,246,.50);
+
+  --event:         #f59e0b;
+  --event-dark:    #b45309;
+  --event-light:   #fde68a;
+  --event-rgb:     245,158,11;
+  --event-text:    #1c1917;
+
+  --blob1-rgb:      59,130,246;
+  --blob2-rgb:     147,197,253;
+  --blob3-rgb:      30, 64,175;
+  --blob4-rgb:     245,158, 11;
+
+  --bg:            #ffffff;
+  --bg-hero:       #eff6ff;
+  --bg-alt:        #eff6ff;
+  --nav-bg:        rgba(255,255,255,.88);
+  --footer-bg:     #0f172a;
+
+  --border:        #bfdbfe;
+
+  --text-primary:   #0a1628;
+  --text-secondary: #374151;
+  --text-light:     #6b7280;
+
+  --shadow-sm:     0 2px 12px rgba(59,130,246,.07);
+  --shadow-md:     0 6px 28px rgba(59,130,246,.12);
+  --shadow-lg:     0 16px 48px rgba(59,130,246,.18);
+
+  --gradient-name: linear-gradient(135deg,#1e3a8a 0%,#3b82f6 50%,#93c5fd 100%);
+
+  --skill-marketing: linear-gradient(90deg,#3b82f6,#93c5fd);
+  --skill-data:      linear-gradient(90deg,#0ea5e9,#38bdf8);
+  --skill-content:   linear-gradient(90deg,#f59e0b,#fde68a);
+  --skill-rights:    linear-gradient(90deg,#10b981,#6ee7b7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent:        #60a5fa;
+    --accent-dark:   #3b82f6;
+    --accent-light:  #93c5fd;
+    --accent-rgb:    96,165,250;
+    --accent-glow:   rgba(96,165,250,.22);
+    --secondary:     rgba(96,165,250,.50);
+
+    --event:         #fbbf24;
+    --event-dark:    #f59e0b;
+    --event-light:   #fef3c7;
+    --event-rgb:     251,191,36;
+
+    --blob1-rgb:      96,165,250;
+    --blob2-rgb:     147,197,253;
+    --blob3-rgb:      59,130,246;
+    --blob4-rgb:     251,191, 36;
+
+    --bg:            #0f172a;
+    --bg-hero:       #0f172a;
+    --bg-alt:        #1e293b;
+    --nav-bg:        rgba(15,23,42,.88);
+    --footer-bg:     #020817;
+
+    --border:        #1e3a5f;
+
+    --text-primary:   #eff6ff;
+    --text-secondary: #94a3b8;
+    --text-light:     #64748b;
+
+    --shadow-sm:     0 2px 12px rgba(0,0,0,.30);
+    --shadow-md:     0 6px 28px rgba(0,0,0,.38);
+    --shadow-lg:     0 16px 48px rgba(0,0,0,.55);
+
+    --gradient-name: linear-gradient(135deg,#93c5fd 0%,#60a5fa 50%,#3b82f6 100%);
+  }
+}

@@ -1,0 +1,85 @@
+/* ================================================================
+   PALETTE 4 — ROYAL
+   Primary : 딥 퍼플  ·  Pair Light : 라벤더
+   ================================================================ */
+:root {
+  --accent:        #7c3aed;
+  --accent-dark:   #4c1d95;
+  --accent-light:  #a78bfa;
+  --accent-rgb:    124,58,237;
+  --accent-glow:   rgba(124,58,237,.22);
+  --secondary:     rgba(124,58,237,.50);
+
+  --event:         #f59e0b;
+  --event-dark:    #b45309;
+  --event-light:   #fde68a;
+  --event-rgb:     245,158,11;
+  --event-text:    #1c1917;
+
+  --blob1-rgb:     124, 58,237;
+  --blob2-rgb:     167,139,250;
+  --blob3-rgb:      76, 29,149;
+  --blob4-rgb:     245,158, 11;
+
+  --bg:            #ffffff;
+  --bg-hero:       #f5f3ff;
+  --bg-alt:        #f5f3ff;
+  --nav-bg:        rgba(255,255,255,.88);
+  --footer-bg:     #1e1b4b;
+
+  --border:        #ddd6fe;
+
+  --text-primary:   #1e1b4b;
+  --text-secondary: #374151;
+  --text-light:     #6b7280;
+
+  --shadow-sm:     0 2px 12px rgba(124,58,237,.07);
+  --shadow-md:     0 6px 28px rgba(124,58,237,.12);
+  --shadow-lg:     0 16px 48px rgba(124,58,237,.18);
+
+  --gradient-name: linear-gradient(135deg,#4c1d95 0%,#7c3aed 50%,#a78bfa 100%);
+
+  --skill-marketing: linear-gradient(90deg,#7c3aed,#a78bfa);
+  --skill-data:      linear-gradient(90deg,#6366f1,#818cf8);
+  --skill-content:   linear-gradient(90deg,#f59e0b,#fde68a);
+  --skill-rights:    linear-gradient(90deg,#10b981,#6ee7b7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent:        #a78bfa;
+    --accent-dark:   #7c3aed;
+    --accent-light:  #c4b5fd;
+    --accent-rgb:    167,139,250;
+    --accent-glow:   rgba(167,139,250,.22);
+    --secondary:     rgba(167,139,250,.50);
+
+    --event:         #fbbf24;
+    --event-dark:    #f59e0b;
+    --event-light:   #fef3c7;
+    --event-rgb:     251,191,36;
+
+    --blob1-rgb:     167,139,250;
+    --blob2-rgb:     196,181,253;
+    --blob3-rgb:     124, 58,237;
+    --blob4-rgb:     251,191, 36;
+
+    --bg:            #13111e;
+    --bg-hero:       #13111e;
+    --bg-alt:        #1e1b2e;
+    --nav-bg:        rgba(19,17,30,.88);
+    --footer-bg:     #0a0918;
+
+    --border:        #2e2850;
+
+    --text-primary:   #f5f3ff;
+    --text-secondary: #c4b5fd;
+    --text-light:     #7c6eab;
+
+    --shadow-sm:     0 2px 12px rgba(0,0,0,.30);
+    --shadow-md:     0 6px 28px rgba(0,0,0,.38);
+    --shadow-lg:     0 16px 48px rgba(0,0,0,.55);
+
+    --gradient-name: linear-gradient(135deg,#c4b5fd 0%,#a78bfa 50%,#7c3aed 100%);
+  }
+}
